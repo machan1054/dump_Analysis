@@ -1,0 +1,27 @@
+
+; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6_8.4 <<>> www.yahoo.co.jp
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25097
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 2, ADDITIONAL: 2
+
+;; QUESTION SECTION:
+;www.yahoo.co.jp.		IN	A
+
+;; ANSWER SECTION:
+www.yahoo.co.jp.	583	IN	CNAME	edge12.g.yimg.jp.
+edge12.g.yimg.jp.	25	IN	A	183.79.217.124
+
+;; AUTHORITY SECTION:
+g.yimg.jp.		351	IN	NS	gns12.yahoo.co.jp.
+g.yimg.jp.		351	IN	NS	gns02.yahoo.co.jp.
+
+;; ADDITIONAL SECTION:
+gns02.yahoo.co.jp.	333	IN	A	118.151.254.148
+gns12.yahoo.co.jp.	333	IN	A	124.83.255.100
+
+;; Query time: 0 msec
+;; SERVER: 133.45.152.2#53(133.45.152.2)
+;; WHEN: Wed Apr 17 11:38:33 2019
+;; MSG SIZE  rcvd: 149
+

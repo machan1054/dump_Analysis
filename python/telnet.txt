@@ -1,0 +1,7 @@
+-bash-3.00$ pwd
+/home/mother/komusa
+-bash-3.00$ ls
+#testet#         avg.log          evolution
+#testet#~        bindconf.tar.gz  missfont.log
+Desktop          clamscan.log     syslogs
+-bash-3.00$
