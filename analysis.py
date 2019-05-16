@@ -4,6 +4,16 @@ from formats import *
 
 
 def Analysis(data, mode, indent=False, Analyzed=0):
+    """
+    データを指定されたプロトコルに沿って解析する．
+    Args:
+        data(str): 解析対象のデータ．
+        mode(tuple): フォーマットデータ
+        indent(bool): 表示時のインデント
+        Analyzed(int): すでに解析したビット数（前の解析からの引き継ぎ）
+    Returns:
+        dict: フォーマットデータ中で記憶が指定されたデータ
+    """
     i = 0
     j = 0
     no_data = 1
@@ -71,6 +81,13 @@ def Analysis(data, mode, indent=False, Analyzed=0):
 
 
 def typeDecision(line):
+    """
+    ネットワーク層のプロトコルを判定する．
+    Args:
+        line(str): tcpdump出力の1行目
+    Returns:
+        str: EtherTypeのプロトコル識別子
+    """
     print(line.strip())
     typere = re.match(r'.+ethertype.+\(0x(.+)\),.+', line)
     if typere:
@@ -80,6 +97,12 @@ def typeDecision(line):
 
 
 def dumpAnalysis(data, primary_mode):
+    """
+    formatsモジュールの記述に従ってプロトコルを判定する．
+    Args:
+        data(str): 解析するバイナリ形式のデータ．
+        primary_mode(tuple): ネットワーク層のプロトコルを指定する．
+    """
     fin = True
     i = 0
     temp = {'DATA': data, 'MODE': primary_mode}
@@ -115,6 +138,12 @@ def dumpAnalysis(data, primary_mode):
 
 
 def print_dump(dump_data):
+    """
+    dumpしたテキストデータを整形してdumpAnalysisに渡す．
+
+    Args:
+        dump_data(str): 解析するテキストデータ．
+    """
     data = ''
     for line in dump_data:
         m = re.match(r'\t.+:(.+)\n', line)
@@ -135,6 +164,11 @@ def print_dump(dump_data):
 
 
 def fileAnalysis(filename):
+    """
+    ファイルを読み込んで解析する．
+    Args:
+        filename(str): ファイル名
+    """
     with open(filename, mode='r') as f:
         dump_data = f.readlines()
     print_dump(dump_data)
